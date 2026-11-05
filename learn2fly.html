@@ -8,21 +8,22 @@
 
   <script>
     window.addEventListener("load", () => {
-      // Get the newest Ruffle player
       const ruffle = window.RufflePlayer.newest();
-      // Create a new player instance
       const player = ruffle.createPlayer();
-      // Select the container div
-      const container = document.getElementById("game-container");
-      container.appendChild(player);
-      // Load the SWF file
+      document.getElementById("game-container").appendChild(player);
       player.load("learn to fly 2.swf");
+
+      // This goes INSIDE the <script> tag
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "f") {
+          if (player.isFullscreen) {
+            player.exitFullscreen();
+          } else {
+            player.requestFullscreen();
+          }
+        }
+      });
     });
   </script>
-  document.addEventListener("keydown", (e) => {
-  if (e.key === "f") {
-    player.isFullscreen ? player.exitFullscreen() : player.requestFullscreen();
-  }
-});   
 </body>
 </html>   
