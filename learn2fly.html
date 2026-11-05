@@ -19,5 +19,10 @@
       player.load("learn to fly 2.swf");
     });
   </script>
+  document.addEventListener("keydown", (e) => {
+  if (e.key === "f") {
+    player.isFullscreen ? player.exitFullscreen() : player.requestFullscreen();
+  }
+});   
 </body>
 </html>   
