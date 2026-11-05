@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./ruffle.js"></script>
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <script>
+    window.addEventListener("load", () => {
+      // Get the newest Ruffle player
+      const ruffle = window.RufflePlayer.newest();
+      // Create a new player instance
+      const player = ruffle.createPlayer();
+      // Select the container div
+      const container = document.getElementById("game-container");
+      container.appendChild(player);
+      // Load the SWF file
+      player.load("learn to fly 2.swf");
+    });
+  </script>
+</body>
+</html>   
